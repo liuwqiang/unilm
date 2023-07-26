@@ -12,6 +12,7 @@ WORKDIR build
 RUN git clone https://github.com/NVIDIA/apex.git && git clone https://github.com/microsoft/unilm.git
 RUN cd apex && pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 RUN cd unilm/layoutreader && pip install .
+RUN pip install nltk && python -c "import nltk; nltk.download('punkt')"
 WORKDIR /layoutreader
 ENV http_proxy=
 ENV https_proxy=
